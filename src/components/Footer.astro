@@ -1,0 +1,44 @@
+---
+import { getTranslations } from '../utils/translations';
+
+const currentLocale = Astro.currentLocale || 'zh-tw';
+const t = getTranslations(currentLocale);
+const currentYear = new Date().getFullYear();
+const homePath = currentLocale === 'zh-tw' ? '/' : currentLocale === 'zh-cn' ? '/zh-cn' : '/en';
+---
+<footer class="bg-primary text-white/70 py-12 border-t border-white/5 mt-auto relative z-10">
+  <div class="container mx-auto px-6 max-w-[1100px]">
+    <div class="flex flex-col md:flex-row justify-between items-center gap-8 text-center md:text-left">
+      
+      <!-- Left side: info -->
+      <div>
+        <h4 class="text-white font-bold text-lg mb-2">{t.footerTitle}</h4>
+        <p class="text-xs text-white/50 max-w-[400px]">
+          {t.footerDesc}
+        </p>
+      </div>
+
+      <!-- Right side: Links / Copyright -->
+      <div class="flex flex-col md:items-end gap-2 text-xs">
+        <div class="flex flex-wrap justify-center md:justify-end gap-4 text-white/60 mb-2">
+          <a href={`${homePath === '/' ? '' : homePath}#intro`} class="hover:text-white transition-colors">{t.navBg}</a>
+          <span>·</span>
+          <a href={`${homePath === '/' ? '' : homePath}#participate`} class="hover:text-white transition-colors">{t.navGuide}</a>
+          <span>·</span>
+          <a href={`${homePath === '/' ? '' : homePath}/privacy`} class="hover:text-white transition-colors">{t.privacyLink}</a>
+          <span>·</span>
+          <a href="https://zjuaanc.org" target="_blank" rel="noopener noreferrer" class="hover:text-white transition-colors">{t.navWebsite}</a>
+        </div>
+        <p>{t.copyright}</p>
+        <div class="text-white/40 text-[10px] mt-1.5 flex flex-wrap justify-center md:justify-end gap-1 items-center">
+          <span>{currentLocale === 'en' ? 'Website design & hosting sponsored by' : '本網站設計與託管由'}</span>
+          <a href="https://viaiforgood.org" target="_blank" rel="noopener noreferrer" class="text-white/60 hover:text-accent font-semibold underline underline-offset-2 transition-colors">
+            VI AI for Good Foundation
+          </a>
+          <span>{currentLocale === 'en' ? '(designed with Antigravity AI)' : '(基於 Antigravity AI 設計)'}</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</footer>

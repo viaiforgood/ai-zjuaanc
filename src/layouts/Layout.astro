@@ -1,0 +1,96 @@
+---
+import '../styles/global.css';
+import { getTranslations } from '../utils/translations';
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const currentLocale = Astro.currentLocale || 'zh-tw';
+const t = getTranslations(currentLocale);
+
+const { 
+  title = t.siteTitle, 
+  description = t.siteDesc 
+} = Astro.props;
+
+// Determine html tag lang code
+const htmlLang = currentLocale === 'zh-tw' ? 'zh-Hant' : currentLocale === 'zh-cn' ? 'zh-Hans' : 'en';
+const homePath = currentLocale === 'zh-tw' ? '/' : currentLocale === 'zh-cn' ? '/zh-cn' : '/en';
+---
+
+<!DOCTYPE html>
+<html lang={htmlLang} class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/png" href="/favicon.png" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <meta name="generator" content={Astro.generator} />
+    
+    <!-- SEO Meta Tags -->
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://ai.zjuaanc.org" />
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet" />
+  </head>
+  <body class="bg-warm text-text-dark font-sans antialiased min-h-screen flex flex-col pt-16">
+    
+    <!-- Sticky Navigation Header with Language Switcher -->
+    <header class="fixed top-0 left-0 w-full h-16 bg-white/80 backdrop-blur-md border-b border-primary/5 z-50 transition-all duration-300">
+      <div class="container mx-auto px-6 max-w-[1100px] h-full flex items-center justify-between">
+        
+        <!-- Brand / Title -->
+        <a href={homePath} class="flex items-center gap-3 group">
+          <img src="/images/logo.png" alt="ZJUAANC Logo" class="w-8 h-8 rounded-lg object-cover shadow-sm group-hover:scale-105 transition-transform duration-300" />
+          <span class="font-bold text-primary tracking-wide text-sm sm:text-base group-hover:text-accent transition-colors duration-300">
+            {currentLocale === 'en' ? 'ZJUAANC AI' : '北卡浙大校友會 AI'}
+          </span>
+        </a>
+
+        <!-- Navigation Links and Lang Switcher -->
+        <div class="flex items-center gap-4 sm:gap-6">
+          <nav class="hidden md:flex items-center gap-6 text-sm font-medium text-text-light">
+            <a href={`${homePath === '/' ? '' : homePath}#intro`} class="hover:text-primary transition-colors">{t.navBg}</a>
+            <a href={`${homePath === '/' ? '' : homePath}#participate`} class="hover:text-primary transition-colors">{t.navGuide}</a>
+            <a href="https://zjuaanc.org" target="_blank" rel="noopener noreferrer" class="hover:text-primary transition-colors">{t.navWebsite}</a>
+          </nav>
+
+          <span class="hidden md:inline w-[1px] h-4 bg-primary/10"></span>
+
+          <!-- Language Selector Pills -->
+          <div class="flex items-center gap-1 bg-primary/5 rounded-full p-1 border border-primary/5 text-xs font-semibold">
+            <a 
+              href="/" 
+              class={`px-3 py-1 rounded-full transition-all duration-200 ${currentLocale === 'zh-tw' ? 'bg-white text-primary shadow-sm' : 'text-text-light hover:text-primary'}`}
+            >
+              繁
+            </a>
+            <a 
+              href="/zh-cn" 
+              class={`px-3 py-1 rounded-full transition-all duration-200 ${currentLocale === 'zh-cn' ? 'bg-white text-primary shadow-sm' : 'text-text-light hover:text-primary'}`}
+            >
+              简
+            </a>
+            <a 
+              href="/en" 
+              class={`px-3 py-1 rounded-full transition-all duration-200 ${currentLocale === 'en' ? 'bg-white text-primary shadow-sm' : 'text-text-light hover:text-primary'}`}
+            >
+              EN
+            </a>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <slot />
+  </body>
+</html>

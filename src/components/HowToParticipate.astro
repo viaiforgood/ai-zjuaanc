@@ -1,0 +1,82 @@
+---
+import { getTranslations } from '../utils/translations';
+
+const currentLocale = Astro.currentLocale || 'zh-tw';
+const t = getTranslations(currentLocale);
+---
+<section id="participate" class="py-20 md:py-28 bg-warm relative">
+  <div class="container mx-auto px-6 max-w-[1100px]">
+    
+    <!-- Section Title -->
+    <div class="text-center max-w-[700px] mx-auto mb-16">
+      <h2 class="text-xs uppercase tracking-widest text-accent font-bold mb-3">{t.guideTag}</h2>
+      <h3 class="text-3xl md:text-4xl font-bold text-primary">{t.guideTitle}</h3>
+      <p class="text-text-light mt-4 text-base md:text-lg">
+        {t.guideDesc}
+      </p>
+    </div>
+
+    <!-- Steps Grid / Timeline -->
+    <div class="grid grid-cols-1 lg:grid-cols-4 gap-8 relative z-10">
+      
+      <!-- Step 1 -->
+      <div class="bg-white rounded-2xl p-8 border border-primary/5 shadow-sm relative group hover:shadow-md transition-shadow duration-300">
+        <div class="text-5xl font-extrabold text-accent/15 mb-4 group-hover:text-accent/30 transition-colors duration-300">01</div>
+        <h4 class="text-lg font-bold text-primary mb-3">{t.step1Title}</h4>
+        <p class="text-text-light text-sm leading-relaxed">
+          {t.step1Desc}
+        </p>
+      </div>
+
+      <!-- Step 2 -->
+      <div class="bg-white rounded-2xl p-8 border border-primary/5 shadow-sm relative group hover:shadow-md transition-shadow duration-300">
+        <div class="text-5xl font-extrabold text-accent/15 mb-4 group-hover:text-accent/30 transition-colors duration-300">02</div>
+        <h4 class="text-lg font-bold text-primary mb-3">{t.step2Title}</h4>
+        <p class="text-text-light text-sm leading-relaxed">
+          {t.step2Desc}
+        </p>
+      </div>
+
+      <!-- Step 3 -->
+      <div class="bg-white rounded-2xl p-8 border border-primary/5 shadow-sm relative group hover:shadow-md transition-shadow duration-300">
+        <div class="text-5xl font-extrabold text-accent/15 mb-4 group-hover:text-accent/30 transition-colors duration-300">03</div>
+        <h4 class="text-lg font-bold text-primary mb-3">{t.step3Title}</h4>
+        <p class="text-text-light text-sm leading-relaxed">
+          {t.step3Desc}
+        </p>
+      </div>
+
+      <!-- Step 4 -->
+      <div class="bg-white rounded-2xl p-8 border border-accent/20 shadow-sm relative group hover:shadow-md transition-shadow duration-300 bg-gradient-to-br from-white to-accent/5">
+        <div class="text-5xl font-extrabold text-accent/25 mb-4 group-hover:text-accent/40 transition-colors duration-300">04</div>
+        <h4 class="text-lg font-bold text-primary mb-3">{t.step4Title}</h4>
+        <p class="text-text-light text-sm leading-relaxed mb-4">
+          {t.step4Desc}
+        </p>
+        <div class="mt-4 flex flex-wrap gap-2 text-xs text-primary/80 font-medium">
+          {currentLocale === 'en' ? (
+            <>
+              <span>WeChat: michaelhuo</span>
+              <span class="text-accent/40">|</span>
+              <span>Email: <a href="mailto:michael@zjuaanc.org" class="hover:underline">michael@zjuaanc.org</a></span>
+            </>
+          ) : currentLocale === 'zh-cn' ? (
+            <>
+              <span>微信：michaelhuo</span>
+              <span class="text-accent/40">|</span>
+              <span>邮箱：<a href="mailto:michael@zjuaanc.org" class="hover:underline">michael@zjuaanc.org</a></span>
+            </>
+          ) : (
+            <>
+              <span>微信：michaelhuo</span>
+              <span class="text-accent/40">|</span>
+              <span>電郵：<a href="mailto:michael@zjuaanc.org" class="hover:underline">michael@zjuaanc.org</a></span>
+            </>
+          )}
+        </div>
+      </div>
+
+    </div>
+    
+  </div>
+</section>

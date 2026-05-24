@@ -1,0 +1,80 @@
+---
+import { getTranslations } from '../utils/translations';
+
+const currentLocale = Astro.currentLocale || 'zh-tw';
+const t = getTranslations(currentLocale);
+
+// CHANGE THIS: Replace with the published URL of the Google Form created for the AI seminar
+const GOOGLE_FORM_URL = "#";
+---
+<section class="py-20 md:py-28 bg-warm relative">
+  <div class="container mx-auto px-6 max-w-[800px] text-center">
+    
+    <!-- Title -->
+    <h2 class="text-xs uppercase tracking-widest text-accent font-bold mb-3">{t.submitTag}</h2>
+    <h3 class="text-3xl md:text-4xl font-bold text-primary mb-6">{t.submitTitle}</h3>
+    <p class="text-text-light text-base md:text-lg leading-relaxed mb-10 max-w-[600px] mx-auto">
+      {t.submitDesc}
+    </p>
+
+    <!-- Google Form Button -->
+    <div class="mb-12">
+      <a 
+        href={GOOGLE_FORM_URL}
+        class="inline-block bg-accent hover:bg-accent-hover active:bg-accent text-white font-bold px-10 py-5 rounded-2xl shadow-lg hover:shadow-accent/30 transition-all duration-300 transform hover:-translate-y-0.5 text-lg animate-pulse"
+      >
+        {t.submitBtn}
+      </a>
+      <p class="text-xs text-text-light/80 mt-3">{t.submitBtnSub}</p>
+    </div>
+
+    <!-- Alternative Path Card -->
+    <div class="bg-white rounded-2xl p-6 md:p-8 border border-primary/5 max-w-[500px] mx-auto shadow-sm">
+      <h4 class="font-bold text-primary mb-3 text-sm">{t.altTitle}</h4>
+      <p class="text-text-light text-xs leading-relaxed mb-4">
+        {t.altDesc}
+      </p>
+      
+      <div class="flex flex-col sm:flex-row justify-center items-center gap-4 text-xs font-semibold text-primary">
+        {currentLocale === 'en' ? (
+          <>
+            <div class="flex items-center gap-1.5">
+              <span class="text-text-light">WeChat:</span>
+              <span>michaelhuo</span>
+            </div>
+            <span class="hidden sm:inline text-primary/20">|</span>
+            <div class="flex items-center gap-1.5">
+              <span class="text-text-light">Email:</span>
+              <a href="mailto:michael@zjuaanc.org" class="hover:underline">michael@zjuaanc.org</a>
+            </div>
+          </>
+        ) : currentLocale === 'zh-cn' ? (
+          <>
+            <div class="flex items-center gap-1.5">
+              <span class="text-text-light">微信：</span>
+              <span>michaelhuo</span>
+            </div>
+            <span class="hidden sm:inline text-primary/20">|</span>
+            <div class="flex items-center gap-1.5">
+              <span class="text-text-light">邮箱：</span>
+              <a href="mailto:michael@zjuaanc.org" class="hover:underline">michael@zjuaanc.org</a>
+            </div>
+          </>
+        ) : (
+          <>
+            <div class="flex items-center gap-1.5">
+              <span class="text-text-light">微信：</span>
+              <span>michaelhuo</span>
+            </div>
+            <span class="hidden sm:inline text-primary/20">|</span>
+            <div class="flex items-center gap-1.5">
+              <span class="text-text-light">電郵：</span>
+              <a href="mailto:michael@zjuaanc.org" class="hover:underline">michael@zjuaanc.org</a>
+            </div>
+          </>
+        )}
+      </div>
+    </div>
+
+  </div>
+</section>

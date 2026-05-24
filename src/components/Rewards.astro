@@ -1,0 +1,51 @@
+---
+import { getTranslations } from '../utils/translations';
+
+const currentLocale = Astro.currentLocale || 'zh-tw';
+const t = getTranslations(currentLocale);
+---
+<section class="py-20 md:py-28 bg-white relative overflow-hidden">
+  <!-- Decorative background elements -->
+  <div class="absolute -right-24 bottom-0 w-96 h-96 bg-accent/5 rounded-full blur-3xl pointer-events-none"></div>
+  <div class="absolute -left-24 top-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl pointer-events-none"></div>
+
+  <div class="container mx-auto px-6 max-w-[900px] relative z-10">
+    
+    <!-- Section Title -->
+    <div class="text-center mb-12">
+      <h2 class="text-xs uppercase tracking-widest text-accent font-bold mb-3">{t.rewardsTag}</h2>
+      <h3 class="text-3xl md:text-4xl font-bold text-primary">{t.rewardsTitle}</h3>
+    </div>
+
+    <!-- Main Premium Card -->
+    <div class="bg-gradient-to-br from-primary via-primary-hover to-primary text-white rounded-3xl p-8 md:p-12 shadow-xl border border-white/10 relative overflow-hidden">
+      <!-- Glow effect -->
+      <div class="absolute -right-32 -bottom-32 w-80 h-80 bg-accent/20 rounded-full blur-3xl pointer-events-none"></div>
+      
+      <!-- BookOpen Icon -->
+      <div class="w-16 h-16 bg-white/10 rounded-2xl flex items-center justify-center text-accent mb-8 border border-white/15">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-8 h-8">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M12 6.042A8.967 8.967 0 0 0 6 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 0 1 6 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 0 1 6-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0 0 18 18a8.967 8.967 0 0 0-6 2.292m0-14.25v14.25" />
+        </svg>
+      </div>
+
+      <h4 class="text-2xl md:text-3xl font-bold mb-6">{t.rewardsSubTitle}</h4>
+      
+      <p class="text-white/80 text-base md:text-lg leading-relaxed mb-8 font-light">
+        {t.rewardsDesc}
+      </p>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 border-t border-white/10 pt-8 text-sm">
+        <div>
+          <div class="text-white/50 uppercase tracking-wider text-xs font-semibold mb-1">{t.rewardsCatLabel}</div>
+          <div class="text-white font-bold text-base">{t.rewardsCatVal}</div>
+        </div>
+        <div>
+          <div class="text-white/50 uppercase tracking-wider text-xs font-semibold mb-1">{t.rewardsHonLabel}</div>
+          <div class="text-white font-bold text-base">{t.rewardsHonVal}</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
