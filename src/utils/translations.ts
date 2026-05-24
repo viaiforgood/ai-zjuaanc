@@ -5,6 +5,7 @@ export const translations = {
     navBg: '講座大綱',
     navGuide: '報名指南',
     navWebsite: '校友會官網',
+    navRegister: '立即報名',
     
     // Hero
     ncBadge: '北卡校友會專題講座',
@@ -101,6 +102,7 @@ export const translations = {
     navBg: '讲座大纲',
     navGuide: '报名指南',
     navWebsite: '校友会官网',
+    navRegister: '立即报名',
     
     // Hero
     ncBadge: '北卡校友会专题讲座',
@@ -197,6 +199,7 @@ export const translations = {
     navBg: 'Agenda',
     navGuide: 'Guide',
     navWebsite: 'Alumni Website',
+    navRegister: 'Register Now',
     
     // Hero
     ncBadge: 'ZJUAANC Special Seminar',

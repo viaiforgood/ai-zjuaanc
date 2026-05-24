@@ -63,10 +63,15 @@ const t = getTranslations(currentLocale);
         <!-- Actions -->
         <div class="flex flex-col sm:flex-row gap-4 w-full sm:w-auto">
           <a 
-            href="#participate" 
-            class="bg-accent hover:bg-accent-hover active:bg-accent text-white font-medium px-8 py-4 rounded-xl shadow-lg hover:shadow-accent/25 transition-all duration-300 transform hover:-translate-y-0.5 text-center"
+            href="https://docs.google.com/forms/d/e/1FAIpQLSfXT9cbkSvBC4m_sclMmGaw2stv9RHCrzNW_IodZsvkdTEZew/viewform" 
+            target="_blank" 
+            rel="noopener noreferrer" 
+            class="bg-accent hover:bg-accent-hover active:bg-accent text-white font-medium px-8 py-4 rounded-xl shadow-lg hover:shadow-accent/25 transition-all duration-300 transform hover:-translate-y-0.5 text-center flex items-center justify-center gap-2"
           >
-            {t.btnLearn}
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" class="w-5 h-5">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 6H5.25A2.25 2.25 0 0 0 3 8.25v10.5A2.25 2.25 0 0 0 5.25 21h10.5A2.25 2.25 0 0 0 18 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25" />
+            </svg>
+            <span>{t.btnLearn}</span>
           </a>
           <a 
             href="#intro" 

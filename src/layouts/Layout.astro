@@ -57,7 +57,7 @@ const homePath = currentLocale === 'zh-tw' ? '/' : currentLocale === 'zh-cn' ? '
         </a>
 
         <!-- Navigation Links and Lang Switcher -->
-        <div class="flex items-center gap-4 sm:gap-6">
+        <div class="flex items-center gap-3 sm:gap-4">
           <nav class="hidden md:flex items-center gap-6 text-sm font-medium text-text-light">
             <a href={`${homePath === '/' ? '' : homePath}#intro`} class="hover:text-primary transition-colors">{t.navBg}</a>
             <a href={`${homePath === '/' ? '' : homePath}#participate`} class="hover:text-primary transition-colors">{t.navGuide}</a>
@@ -65,6 +65,21 @@ const homePath = currentLocale === 'zh-tw' ? '/' : currentLocale === 'zh-cn' ? '
           </nav>
 
           <span class="hidden md:inline w-[1px] h-4 bg-primary/10"></span>
+
+          <!-- Google Form RSVP CTA Button -->
+          <a 
+            href="https://docs.google.com/forms/d/e/1FAIpQLSfXT9cbkSvBC4m_sclMmGaw2stv9RHCrzNW_IodZsvkdTEZew/viewform" 
+            target="_blank" 
+            rel="noopener noreferrer" 
+            class="bg-accent hover:bg-accent-hover text-white text-xs font-semibold px-4 py-2 rounded-lg shadow-sm hover:shadow-accent/20 transition-all duration-200 flex items-center gap-1"
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" class="w-3.5 h-3.5">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 6H5.25A2.25 2.25 0 0 0 3 8.25v10.5A2.25 2.25 0 0 0 5.25 21h10.5A2.25 2.25 0 0 0 18 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25" />
+            </svg>
+            <span>{t.navRegister}</span>
+          </a>
+
+          <span class="w-[1px] h-4 bg-primary/10"></span>
 
           <!-- Language Selector Pills -->
           <div class="flex items-center gap-1 bg-primary/5 rounded-full p-1 border border-primary/5 text-xs font-semibold">
